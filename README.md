@@ -45,36 +45,37 @@ The *Index.cshtml* file starts as ...
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Self-contained Razor Pages Test App</title>
+    <title>Razor Pages Minification App</title>
 </head>
 <body>
-    <h1>Self-contained Razor Pages Test App</h1>
+    <h1>Razor Pages Minification App</h1>
     <p>@Host.ApplicationName @Model.DT</p>
-    <div>
-        <figure style="text-align:center;width:400px">
-            <img alt="Jack Burton" src="image.png">
-            <figcaption>Jack Burton (Kurt Russell)<br><em>Big Trouble in Little China</em><br>&copy;1986 <a href="http://www.foxmovies.com/">20th Century Fox</a></figcaption>
-        </figure>
-    </div>
-    <div>
-        <!--wmm:ignore-->@for (var i = 0; i < Model.People.Count; i++)
-        {
-            var person = Model.People[i];
-            <text><p>Name: @person</p></text>
-        }<!--/wmm:ignore-->
-    </div>
-    <div>
+    <figure style="text-align:center;width:400px">
+        <img alt="Jack Burton" src="image.png">
+        <figcaption>Jack Burton (Kurt Russell)<br><em>Big Trouble in Little China</em><br>&copy;1986 <a href="http://www.foxmovies.com/">20th Century Fox</a></figcaption>
+    </figure>
+    <p>
+        People:
+        <ol>
+            <!--wmm:ignore-->@for (var i = 0; i < Model.People.Count; i++)
+            {
+                var person = Model.People[i];
+                <text><li>@person</li></text>
+            }<!--/wmm:ignore-->
+        </ol>
+    </p>
+    <p>
         <!--wmm:ignore-->@if (Model.People.Count < 10)
         {
-            <text><p>There are less than ten people.</p></text>
+            <text>There are less than ten people.</text>
         }<!--/wmm:ignore-->
-    </div>
+    </p>
 </body>
 </html>
 ```
 
 The *Index.cshtml* file renders as ...
 
-> \<!DOCTYPE html>\<html lang=en-US>\<head>\<title>Self-contained Razor Pages Test App\</title>\<body>\<h1>Self-contained Razor Pages Test App\</h1>\<p>TestRazor 8/6/2017 3:29:59 PM\<div>\<figure style=text-align:center;width:400px>\<img alt="Jack Burton" src=image.png>\<figcaption>Jack Burton (Kurt Russell)\<br>\<em>Big Trouble in Little China\</em>\<br>&copy;1986 \<a href="http://www.foxmovies.com/">20th Century Fox\</a>\</figcaption>\</figure>\</div>\<div>\<p>Name: Susan\</p>\<p>Name: Bob\</p>\</div>\<div>\<p>There are less than ten people.\</p>\</div>
+> \<!DOCTYPE html>\<html lang=en>\<head>\<title>Razor Pages Minification App\</title>\<body>\<h1>Razor Pages Minification App\</h1>\<p>RazorMinification 8/14/2017 4:24:29 PM\</p>\<figure style=text-align:center;width:400px>\<img alt="Jack Burton" src=image.png>\<figcaption>Jack Burton (Kurt Russell)\<br>\<em>Big Trouble in Little China\</em>\<br>&copy;1986 \<a href="http://www.foxmovies.com/">20th Century Fox\</a>\</figcaption>\</figure>\<p>People:\<ol>\<li>Susan\</li>\<li>Catalina\</li>\<li>Diego\</li>\<li>Bob\</li>\</ol>\<p>There are less than ten people.
 
 ![Rendered page](image.png)
