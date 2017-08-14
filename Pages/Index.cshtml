@@ -1,0 +1,32 @@
+﻿@page
+@model IndexModel
+@inject Microsoft.AspNetCore.Hosting.IHostingEnvironment Host
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Self-contained Razor Pages Test App</title>
+</head>
+<body>
+    <h1>Self-contained Razor Pages Test App</h1>
+    <p>@Host.ApplicationName @Model.DT</p>
+    <div>
+        <figure style="text-align:center;width:400px">
+            <img alt="Jack Burton" src="image.png">
+            <figcaption>Jack Burton (Kurt Russell)<br><em>Big Trouble in Little China</em><br>&copy;1986 <a href="http://www.foxmovies.com/">20th Century Fox</a></figcaption>
+        </figure>
+    </div>
+    <div>
+        <!--wmm:ignore-->@for (var i = 0; i < Model.People.Count; i++)
+        {
+            var person = Model.People[i];
+            <text><p>Name: @person</p></text>
+        }<!--/wmm:ignore-->
+    </div>
+    <div>
+        <!--wmm:ignore-->@if (Model.People.Count < 10)
+        {
+            <text><p>There are less than ten people.</p></text>
+        }<!--/wmm:ignore-->
+    </div>
+</body>
+</html>
