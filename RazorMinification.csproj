@@ -15,9 +15,4 @@
     <PackageReference Include="WebMarkupMin.Core" Version="2.4.0" />
   </ItemGroup>
 
-  <Target Name="CreateLogsFolderForStdoutLogging" AfterTargets="AfterPublish">
-    <MakeDir Directories="$(PublishDir)logs" Condition="!Exists('$(PublishDir)logs')" />
-    <MakeDir Directories="$(PublishUrl)logs" Condition="!Exists('$(PublishUrl)logs')" />
-  </Target>
-
 </Project>
